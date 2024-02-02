@@ -1,0 +1,6 @@
+# Dependency directory
+node_modules
+frontend/node_modules
+
+# Eniveronment Editor
+.env
