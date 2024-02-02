@@ -56,7 +56,15 @@ export const signup = catchAsync(async (req, res) => {
   await newUser.save();
 
   // SEND RESPONSE
-  res.status(201).json({ message: 'User registered successfully' });
+  res.status(201).json({
+    message: 'User registered successfully',
+    user: {
+      id: user._id,
+      fullName: user.fullName,
+      username: user.username,
+      profilePic: user.profilePic,
+    },
+  });
 });
 
 export const login = catchAsync(async (req, res) => {
