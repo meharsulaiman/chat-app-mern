@@ -1,11 +1,13 @@
 import BrandHeading from '../../components/BrandHeading';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import BlurryContainer from '../../components/BlurryContainer';
+import Container from '../../components/Container';
 
 const Login = () => {
   return (
-    <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-      <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
+    <Container>
+      <BlurryContainer>
         <BrandHeading span1={'Login'} span2={'ChatApp'} />
         {/* FORM */}
         <form>
@@ -36,8 +38,8 @@ const Login = () => {
           {/* SUBMIT BUTTON */}
           <Button>Login</Button>
         </form>
-      </div>
-    </div>
+      </BlurryContainer>
+    </Container>
   );
 };
 
