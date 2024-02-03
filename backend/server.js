@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 
 import authRoutes from './routes/authRoutes.js';
 import messageRoutes from './routes/messageRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 import connectToDatabase from './utils/connectToDatabase.js';
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(cookieParser());
 // ROUTES
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
+app.use('/api/users', userRoutes);
 
 app.use((err, req, res, next) => {
   res.status(500).json({ message: err.message });
