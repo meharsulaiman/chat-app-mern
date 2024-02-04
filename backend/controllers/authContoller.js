@@ -59,10 +59,10 @@ export const signup = catchAsync(async (req, res) => {
   res.status(201).json({
     message: 'User registered successfully',
     user: {
-      id: user._id,
-      fullName: user.fullName,
-      username: user.username,
-      profilePic: user.profilePic,
+      id: newUser._id,
+      fullName: newUser.fullName,
+      username: newUser.username,
+      profilePic: newUser.profilePic,
     },
   });
 });

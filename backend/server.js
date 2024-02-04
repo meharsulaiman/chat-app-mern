@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import authRoutes from './routes/authRoutes.js';
 import messageRoutes from './routes/messageRoutes.js';
@@ -19,6 +20,11 @@ app.get('/', (req, res) => {
 });
 
 // MIDDLEWARE
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 

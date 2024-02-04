@@ -1,6 +1,6 @@
-const GenderCheckbox = () => {
+const GenderCheckbox = ({ register, watch, errors }) => {
   return (
-    <div className='flex'>
+    <div className='flex items-center'>
       <div className='form-control'>
         <label className='label gap-2 cursor-pointer'>
           <span className='label-text'>Male</span>
@@ -9,7 +9,8 @@ const GenderCheckbox = () => {
             name='gender'
             value='male'
             className='radio checked:bg-blue-500 border-slate-900'
-            checked
+            {...register('gender', { required: `gender field is required` })}
+            defaultChecked={watch('gender') === 'male'}
           />
         </label>
       </div>
@@ -22,9 +23,15 @@ const GenderCheckbox = () => {
             name='gender'
             value='female'
             className='radio checked:bg-blue-500 border-slate-900'
+            {...register('gender')}
+            defaultChecked={watch('gender') === 'female'}
           />
         </label>
       </div>
+
+      {errors['gender'] && (
+        <span className='text-red-500 text-xs'>{errors['gender'].message}</span>
+      )}
     </div>
   );
 };
