@@ -1,8 +1,11 @@
 import useConversation from '../store/useConversation';
 import Avatar from './Avatar';
+import { useSocket } from '../context/SocketContext';
 
 const ConversationItem = ({ conversation, emoji, lastIdx }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
+  const { onlineUsers } = useSocket();
+  const isOnline = onlineUsers.includes(conversation._id);
 
   const isSelected = selectedConversation?._id === conversation._id;
 
@@ -17,7 +20,7 @@ const ConversationItem = ({ conversation, emoji, lastIdx }) => {
         {/* AVATAR */}
         <Avatar
           img={conversation.profilePic}
-          status={'online'} // online || offline
+          status={isOnline ? 'online' : 'offline'} // online || offline
         />
 
         {/* NAME AND EMOJI */}
