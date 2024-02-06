@@ -7,8 +7,7 @@ import authRoutes from './routes/authRoutes.js';
 import messageRoutes from './routes/messageRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import connectToDatabase from './utils/connectToDatabase.js';
-
-const app = express();
+import { app, server } from './socket/socket.js';
 
 // CONFIG
 dotenv.config();
@@ -43,7 +42,7 @@ app.use((error, req, res, next) => {
 });
 
 // LISTEN
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   connectToDatabase();
   console.log('Server listening on ' + PORT);
 });
